@@ -1,8 +1,9 @@
 /* COLORS */
 :root{
-    --black: #243046;
+    --black: #231f20;
     /* --white: #EEE7EA; */
-    --white: #F0F0F0;
+    --white: #f7f7f7;
+    --yellow: #ffcf0b;
 }
 
 
@@ -15,16 +16,15 @@ body {
     line-height: 1.5;
 }
 h1, h2 {
-    margin: 1rem 0px 1.2rem 0px;
+    margin: 0rem 0px 1.2rem 0px;
     font-weight: 700;
     line-height: 1.2;
 }
-h1 {font-size: 3rem;}
-h2 {font-size: 1.4rem;}
+h1 {font-size: 1.8rem;}
+h2 {font-size: 1.2rem;}
 a{
-    color:var(--white);
+    color:var(--black);
     text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
 }
 a:hover {opacity: 0.8;}
 p {
@@ -39,12 +39,14 @@ ul{
 
 /* STRUCTURE */
 body{
-    background-color: var(--black);
-    color: var(--white);
-    margin: 6% 8%;
+    background-color: var(--white);
+    color: var(--black);
+    margin: 2% 10%;
 }
 main{
-    width:100%;
+    width:65%;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    /* border-radius: 0.5rem; */
 }
 header{
     margin-bottom:5rem;
@@ -60,6 +62,11 @@ header{
         margin-bottom: 1.2rem;
         line-height:1.2;
     }
+    main{width:100%}
+    body{margin:2%;}
+    #calc-header{text-align:center !important;}
+    #deposits-big{float: none !important;}
+    #results{padding:1rem !important;}
 }
 
 
@@ -76,4 +83,118 @@ header{
         --black: #FFFFFF;
         --white: #243046;
     }
+}
+
+
+
+/* DEPOSIT SLIDER */
+.slidecontainer {
+    width: 100%;
+    margin-top:2rem;
+    margin-bottom:1rem;
+    text-align:center;
+}
+.slidecontainer span{
+    font-size:1rem;
+    font-weight:400;
+    vertical-align: -0.05rem;
+}
+#deposit-slider {
+    display:inline-block;
+    -webkit-appearance: none;
+    appearance: none;
+    width: calc(100% - 8ch);
+    height: 0.5rem;
+    background: var(--white);
+    outline: none;
+    opacity: 0.9;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+#deposit-slider:hover {
+    opacity: 1;
+}
+#deposit-slide:focus{
+    opacity: 1;
+    outline: solid 3px var(--white);
+}
+#deposit-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--yellow);
+    cursor: pointer;
+    border-radius: 30px; 
+}
+#deposit-slider::-moz-range-thumb {
+    width: 1.5rem;
+    height: 1.5px;
+    background: var(--yellow);
+    cursor: pointer;
+    border-radius: 30px; 
+}
+
+
+
+#deposits-big{
+    font-size:1.2rem;
+    font-weight:400;
+    float: right;
+    padding-top:0.5rem;
+}
+#calc-header{
+    margin: 0px 0%;
+    text-align:left;
+}
+
+sup{
+    margin-left:2px;
+    font-size:60%;
+    opacity:80%;
+}
+sub{
+    font-size:60%;
+}
+#equiv p{
+    margin-bottom:0.25rem;
+}
+
+#deposits, #carbon, #reduction{
+    font-size:1.2rem;
+    font-weight:700;
+}
+
+#calculator{
+    text-align:left;
+    background-color:var(--black);
+    color:var(--white);
+    padding: 4rem 4rem 2rem 4rem;
+    /* border-radius: 0.5rem; */
+    margin-bottom:2rem;
+}
+#results, #footnotes{
+    padding: 0px 4rem;
+}
+#results ul{
+    text-align:left;
+    padding-left:1rem;
+    list-style: none;
+    margin-top:2rem;
+}
+#results ul li{
+    margin-bottom:0.5rem;
+}
+#footnotes{
+    font-size:60%;
+    opacity:90%;
+    margin:3rem 0px;
+    padding:1rem 0px 3rem 0px;
+    border-top: solid 1px var(--black);
+}
+.icon{
+    height:1.5rem;
+    width:1.5rem;
+    margin-right:0.5rem;
+    vertical-align:-0.3rem
 }

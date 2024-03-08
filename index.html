@@ -15,10 +15,10 @@
 		<link rel="stylesheet" href="styles.css">
 
 		<!-- favicons -->
-		<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+		<!-- <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-		<link rel="manifest" href="favicons/site.webmanifest">
+		<link rel="manifest" href="favicons/site.webmanifest"> -->
 		
 		<!-- Google fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,14 +26,88 @@
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<header>
-            <h1>Lorem Ipsum</h1>
-        </header>
         <main>
-			<p>Lorem ipsum.</p>
+			
+			<div id="calculator">
+
+				<div id="calc-header">
+					<h1>Calculate the Impact of Your Savings: <span id="deposits-big" aria-live="polite">$10,000</span></h1>
+				</div>
+				
+
+				<div class="slidecontainer">
+					<span>$</span>
+					<input type="range" min="1" max="50" value="10" id="deposit-slider" aria-label="deposit amount">
+					<span>$$$</span>
+				</div>
+			</div>
+
+			<div id="results">
+				<p>Moving <span id="deposits">$10,000</span> from a big bank could reduce your carbon footprint by an estimated<br><span id="carbon">0.18 metric tons</span> of CO<sub>2</sub> equivalent per year.<sup>1</sup> That's a <span id="reduction">76%</span> reduction on par with:</p>
+				<ul>
+					<li><img src="car.png" class="icon">driving <span id="miles">4690</span> fewer miles every year in a gas-powered car,<sup>2</sup></li>
+					<li><img src="plane.png" class="icon">skipping <span id="flights">10</span> flight<span id="flights-plural">s</span> from Boston to Denver each year,<sup>3</sup></li>
+					<li><img src="trees.png" class="icon">or preserving <span id="acres">2.18</span> acres of U.S. forests.<sup>4</sup></li>
+				</ul>
+
+				<ol id="footnotes">
+					<li>The estimates presented here are based on data from "<a href="https://drawdown.org/publications/saving-for-the-planet" target="_blank">Saving for the Planet</a>", a 2023 study by Project Drawdown. It found the average lending impact of the four largest banks (Bank of America, Citigroup, JPMorgan Chase, and Wells Fargo) to be 0.29 tCO2-eq per $1,000 per year. The lending impact of several climate-responsible banks analyzed was found to be 76% smaller, averaging 0.057 tCO2-eq per $1,000 per year.</li>
+					<li>Data from <a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator" target="_blank">EPA Greenhouse Gas Equivalencies</a>.</li>
+					<li>Data from <a href="https://www.icao.int/environmental-protection/CarbonOffset/Pages/default.aspx" target="_blank">ICAO Carbon Emissions Calculator</a>.</li>
+					<li>Data from <a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator" target="_blank">EPA Greenhouse Gas Equivalencies</a>.</li>
+				</ol>
+			</div>
         </main>
         <footer>
             <!-- scripts -->
+			<script>
+				// default values
+				var multiple = 10;
+				var deposits = "$10,000";
+
+				// slider event listener
+				document.getElementById('deposit-slider').addEventListener('input', function (e) {
+					if(e.target.value <= 10){ // slider 1k to 10k
+						multiple = e.target.value * 1;
+						deposits = "$" + multiple + ",000";
+					}
+					else if(e.target.value <= 18){ // slider 15k to 50k
+						multiple = 10 + ((e.target.value - 10) * 5);
+						deposits = "$" + multiple + ",000";
+					}
+					else if(e.target.value <= 33){ // slider 60k to 200k
+						multiple = 50 + ((e.target.value - 18) * 10);
+						deposits = "$" + multiple + ",000";
+					}
+					else if(e.target.value <= 40){ // slider 300k to 900k
+						multiple = 200 + ((e.target.value - 33) * 100);
+						deposits = "$" + multiple + ",000";
+					}
+					else if(e.target.value <= 50){ // slider 1M to 9M
+						multiple = ((e.target.value - 40) * 1000);
+						deposits = "$" + multiple/1000 + "M";
+					}
+
+					if(e.target.value > 1){
+						document.getElementById('flights-plural').innerHTML = "s";
+					}
+					else{
+						document.getElementById('flights-plural').innerHTML = "";
+					}
+
+					// debugging
+					// console.log(e.target.value);
+					// document.getElementById('multiple').innerHTML = multiple;
+
+					// render values
+					document.getElementById('deposits-big').innerHTML = deposits;
+					document.getElementById('deposits').innerHTML = deposits;
+					document.getElementById('carbon').innerHTML = Math.round((multiple * 0.183)*100)/100 + " metric tons";
+					document.getElementById('miles').innerHTML = (multiple * 469).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+					document.getElementById('flights').innerHTML = multiple.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+					document.getElementById('acres').innerHTML = Math.round((multiple * 0.218)*100)/100;
+				});
+				</script>
         </footer>
     </body>
 </html>
