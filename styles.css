@@ -68,6 +68,11 @@ header{
     #results ul li{
         display:block !important;
         width:100% !important;
+        margin-bottom:1rem !important;
+    }
+    #results ul {padding-right:1rem !important;}
+    #footnotes{
+        padding-bottom:0px !important;
     }
 }
 
