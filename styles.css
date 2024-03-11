@@ -180,8 +180,9 @@ sub{
 #results ul li{
     margin-bottom:0.5rem;
     display:inline-block;
-    width:30%;
+    width:29%;
     vertical-align:top;
+    margin-right:0.25rem;
 }
 #footnotes{
     font-size:60%;
