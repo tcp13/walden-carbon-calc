@@ -1,7 +1,6 @@
 /* COLORS */
 :root{
     --black: #231f20;
-    /* --white: #EEE7EA; */
     --white: #f7f7f7;
     --yellow: #ffcf0b;
 }
@@ -46,7 +45,6 @@ body{
 main{
     width:65%;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
-    /* border-radius: 0.5rem; */
 }
 header{
     margin-bottom:5rem;
@@ -70,22 +68,6 @@ header{
     #results ul li{
         display:block !important;
         width:100% !important;
-    }
-}
-
-
-
-/* PRINT FORMAT */
-@media print{
-    @page :footer {display: none;}
-    @page :header {display: none;}
-    @page {
-        size:auto;
-        margin: 2%;
-    }
-    :root{
-        --black: #FFFFFF;
-        --white: #243046;
     }
 }
 
@@ -141,6 +123,8 @@ header{
 
 
 
+
+/* CALC HEADER */
 #deposits-big{
     font-size:1.2rem;
     font-weight:400;
@@ -152,6 +136,9 @@ header{
     text-align:left;
 }
 
+
+
+/* RESULTS */
 sup{
     margin-left:2px;
     font-size:60%;
@@ -168,13 +155,17 @@ sub{
     font-size:1.2rem;
     font-weight:700;
 }
-
+.icon{
+    height:1.5rem;
+    width:1.5rem;
+    margin-right:0.5rem;
+    vertical-align:-0.3rem
+}
 #calculator{
     text-align:left;
     background-color:var(--black);
     color:var(--white);
     padding: 4rem 4rem 2rem 4rem;
-    /* border-radius: 0.5rem; */
     margin-bottom:2rem;
 }
 #results, #footnotes{
@@ -198,10 +189,4 @@ sub{
     margin:3rem 0px;
     padding:1rem 0px 3rem 0px;
     border-top: solid 1px var(--black);
-}
-.icon{
-    height:1.5rem;
-    width:1.5rem;
-    margin-right:0.5rem;
-    vertical-align:-0.3rem
 }

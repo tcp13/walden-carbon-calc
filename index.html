@@ -2,14 +2,14 @@
 <html lang="en">
 	<head>
 		<!-- metadata -->
-		<title>Lorem Ipsum</title>
+		<title>Carbon Calculator Demo</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- seo -->
-        <!-- <meta name="robots" content="noindex"> -->
-		<meta name="title" content="Lorem Ipsum">
-		<meta name="description" content="Lorem ipsum.">
+        <meta name="robots" content="noindex">
+		<meta name="title" content="Carbon Calculator Demo">
+		<meta name="description" content="Carbon Calculator Demo">
 
 		<!-- styles -->
 		<link rel="stylesheet" href="styles.css">
@@ -27,14 +27,11 @@
 	</head>
 	<body>
         <main>
-			
 			<div id="calculator">
-
 				<div id="calc-header">
 					<h1>Calculate the Impact of Your Savings: <span id="deposits-big" aria-live="polite">$10,000</span></h1>
 				</div>
 				
-
 				<div class="slidecontainer">
 					<span>$</span>
 					<input type="range" min="1" max="50" value="10" id="deposit-slider" aria-label="deposit amount">
@@ -45,7 +42,7 @@
 			<div id="results">
 				<p>Moving <span id="deposits">$10,000</span> from a big bank could reduce your carbon footprint by an estimated<br><span id="carbon">0.18 metric tons</span> of CO<sub>2</sub> equivalent per year.<sup>1</sup> That's a <span id="reduction">76%</span> reduction on par with:</p>
 				<ul>
-					<li><img src="car.png" class="icon">driving <span id="miles">4690</span> fewer miles every year in a gas powered car,<sup>2</sup></li>
+					<li><img src="car.png" class="icon">driving <span id="miles">4,690</span> fewer miles every year in a gas powered car,<sup>2</sup></li>
 					<li><img src="plane.png" class="icon">skipping <span id="flights">10</span> flight<span id="flights-plural">s</span> from Boston to Denver each year,<sup>3</sup></li>
 					<li><img src="trees.png" class="icon">or preserving <span id="acres">2.18</span> acres of U.S. forests.<sup>4</sup></li>
 				</ul>
@@ -59,7 +56,6 @@
 			</div>
         </main>
         <footer>
-            <!-- scripts -->
 			<script>
 				// default values
 				var multiple = 10;
@@ -88,16 +84,13 @@
 						deposits = "$" + multiple/1000 + "M";
 					}
 
+					//plural text
 					if(e.target.value > 1){
 						document.getElementById('flights-plural').innerHTML = "s";
 					}
 					else{
 						document.getElementById('flights-plural').innerHTML = "";
 					}
-
-					// debugging
-					// console.log(e.target.value);
-					// document.getElementById('multiple').innerHTML = multiple;
 
 					// render values
 					document.getElementById('deposits-big').innerHTML = deposits;
